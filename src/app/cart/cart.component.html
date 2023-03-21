@@ -1,0 +1,115 @@
+<app-navbar></app-navbar>
+
+
+<ng-container *ngIf="products.length!=0">
+   
+        <div class="pb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12  p-2  rounded shadow-sm">
+                        <!-- Shopping cart table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="bg-warning text-dark">
+                                    <tr>
+                                        <th scope="col" class="border-0 ">
+                                            <div class="p-2 px-2 text-center">S.No.</div>
+                                        </th>
+                                        <th scope="col" class="border-0 ">
+                                            <div class="p-2 px-2 text-center">Product</div>
+                                        </th>
+                                        <th scope="col" class="border-0 ">
+                                            <div class="py-2 align-middle  ">Title</div>
+                                        </th>
+                                        <th scope="col" class="border-0 ">
+                                            <div class="py-2 align-middle   ">Category</div>
+                                        </th>
+                                        <th width="8%" scope="col" class="border-0 ">
+                                            <div class="py-2 align-middle   text-center">Quantity</div>
+                                        </th>
+                                        <th width="13%" scope="col" class="border-0 ">
+                                            <div class="py-2 align-middle   text-center">Price</div>
+                                        </th>
+                                        <th width="14%" scope="col" class="border-0 ">
+                                            <div class="py-2 align-middle  text-center">Remove</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of products;let i = index;"
+                                        style="text-align: center;justify-content: center;">
+
+                                        <th class="border-0 align-middle">{{i+1}}
+                                        </th>
+                                        <th class="border-0 align-middle" style="text-align: center;"><img
+                                                src="{{item.image}}" alt="" width="40" height="40"
+                                                class="img-fluid rounded shadow-sm"></th>
+
+                                        <th class="border-0" style="text-align: start;font-weight:normal;">
+                                            {{item.title}}</th>
+                                        <th class="border-0" style="text-align: start;font-weight:normal;">
+                                            {{item.category}}</th>
+                                        <td class="border-0 align-middle">{{item.quantity}}
+                                               
+                                            </td>
+                                        <td class="border-0 align-middle">{{item.quantity*item.price|currency : 'INR'}}</td>
+                                        
+                                        <td class="border-0 align-middle"><button (click)="removeParticularItem(item)"
+                                                class="btn text-danger"><i class="fa fa-trash"></i></button></td>
+                                    </tr>
+                                    <tr style="align-items: center;justify-content:center;">
+                                        <td colspan="5"></td>
+                                        <td>
+                                           
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                          
+                        </div>
+                        <div class="float-right">
+                            <p style="font-weight: bold;">Grand Total : {{grandTotal |  number:'1.0-3'}}</p>
+                            <button class="btn btn-sm btn-danger" (click)="removeAll()">Empty <i class="fa fa-shopping-cart"></i></button>&nbsp;&nbsp;
+                            <button class="btn btn-sm btn-warning" routerLink="/dashboard">Shop More</button>&nbsp;&nbsp;
+                            <button class="btn btn-sm btn-success" routerLink="/checkout">Checkout</button>
+                        </div>
+
+                        <!-- End -->
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+  
+</ng-container>
+<ng-container>
+    <div *ngIf="products.length==0">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="col-sm-12 text-center">
+                                <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-5521508-4610092.png" width="430" height="430"
+                                    class="img-fluid">
+                                <h3><strong>Your Cart is Empty</strong></h3>
+                                <h4>Add something to make me happy :)</h4>
+                                <a href="/dashboard" class="btn btn-warning cart-btn-transform m-2" style="font-weight: bold;color:black;"
+                                    data-abc="true">Continue
+                                    Shopping</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</ng-container>

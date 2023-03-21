@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-warning" >
+    <a class="navbar-brand" href="javascript:void(0);" style="color:black; font-weight: bold;font-family: cursive;"routerLink="/">A<sup>2</sup>Z</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault" >
+      
+      <ul class="navbar-nav mr-auto">
+          <ng-container *ngIf="this.auth.isAuth(); then authenticated; else notAuthenticated">
+                          
+          </ng-container>
+          <ng-template #notAuthenticated>
+            <li class="nav-item"><a href="javascript:void(0);" routerLink="/register"  class="nav-link" >Register</a></li>
+            <li><a class="nav-link" href="javascript:void(0);" routerLink="/login" >Login</a></li>
+          </ng-template>
+          <ng-template #authenticated>
+            <li class="nav-item"><a href="javascript:void(0);" class="nav-link text-white"  >Hi {{user.displayName}} ! </a></li>
+            <li class="nav-item"><a href="javascript:void(0);" routerLink="/dashboard" class="nav-link" >Product</a></li>
+            <!-- <li class="nav-item"><a href="javascript:void(0);" class="nav-link" >{{this.user.localID}}</a></li> -->
+            <li class="nav-item"><a href="javascript:void(0);" routerLink="/cart"class="nav-link" ><i style='font-size:30px;' class="fa fa-shopping-cart"></i>
+              <div class="badge bg-danger" style="font-size: 10px;background-color:red;color:#fff;" >{{totalItem}}</div>
+            </a></li>
+           <li><a class="nav-link" href="javascript:void(0);"  (click)="logout()"> <i style='font-size:30px;' class="fa fa-sign-out"></i></a></li>
+          </ng-template>
+    
+    
+      </ul>
+    
+    </div>
+  </nav>
