@@ -1,0 +1,12 @@
+.new-navbar{
+    background: linear-gradient(#eaea03,rgb(178, 193, 4)) top right;
+    color:black;
+}
+ul>li>a{
+    color:black;
+    font-weight: bold;
+    transition: .5s;
+}
+ul>li>a:hover{
+    color:rgb(52, 52, 52);
+}

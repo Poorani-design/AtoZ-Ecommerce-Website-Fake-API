@@ -1,0 +1,71 @@
+<app-navbar></app-navbar>
+    <div class="container" style="padding:1.3rem;">
+        <div class="">
+            <div class="">
+                <div class="">
+                
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="left border">
+                                <div class="row">
+                                    <span class="header">Payment</span>
+                                    <div class="icons">
+                                        <img src="https://img.icons8.com/color/48/000000/visa.png"/>
+                                        <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png"/>
+                                        <img src="https://img.icons8.com/color/48/000000/maestro.png"/>
+                                    </div>
+                                </div>
+                                <form method="POST" action="new.php">
+                                    <span>Cardholder's name:</span>
+                                    <input type="text" placeholder="Linda Williams"  required>
+                                    <span>Card Number:</span>
+                                    <input type="text" placeholder="0125 6780 4567 9909" required>
+                                    <div class="row">
+                                        <div class="col-4"><span>Expiry date:</span>
+                                            <input type="text" placeholder="YY/MM" required>
+                                        </div>
+                                        <div class="col-4"><span>CVV:</span>
+                                            <input type="text" id="cvv" required>
+                                        </div>
+                                    </div>
+                                    <input type="checkbox" id="save_card" class="align-left" required>
+                                    <label for="save_card">Save card details</label>  
+                                    <input type="submit" (click)="paymentSubmit()" class="btn btn-sm btn-warning bg-warning" style="font-weight: bold;color:black;" value="Proceed to Pay">  
+                                </form>
+
+                            </div>                        
+                        </div>
+                        <div class="col-md-5">
+                            <div class="right border">
+                                <div class="header">Order Summary</div>
+                                <p>{{totalItem}} items</p>
+                             
+                                <hr>
+                                <div class="row lower">
+                                    <div class="col text-left">Subtotal</div>
+                                    <div class="col text-right">{{grandTotal |currency :'INR'}}</div>
+                                </div>
+                                <div class="row lower">
+                                    <div class="col text-left">Tax</div>
+                                    <div class="col text-right">{{totalItem*2.50|currency :'INR'}}</div>
+                                </div>
+                                <div class="row lower">
+                                    <div class="col text-left">Delivery</div>
+                                    <div class="col text-right">{{shippingAmount | currency :'INR'}}</div>
+                                </div>
+                                <div class="row lower">
+                                    <div class="col text-left"><b>Total to pay</b></div>
+                                    <div class="col text-right"><b>{{grandTotal+(totalItem*2.50)+shippingAmount-couponValue |  number:'1.0-3' | currency : 'INR'}}</b></div>
+                                </div>
+                              
+                                <p class="text-muted text-center">Complimentary Shipping & Returns</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+ <div>
+</div>
+</div>

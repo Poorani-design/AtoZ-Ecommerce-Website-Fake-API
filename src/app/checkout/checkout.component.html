@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row py-4 rounded shadow-sm">
+        <!-- <div class="col-lg-6">
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
+            <div class="p-4">
+                <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
+                <div class="input-group mb-4 border rounded-pill p-2">
+                    <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3"
+                        class="form-control border-0" >
+                    <div class="input-group-append border-0">
+                        <button id="button-addon3" type="button" class="btn btn-dark px-4 rounded-pill"><i
+                                class="fa fa-gift mr-2"></i>Apply coupon</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div> -->
+        <div class="offset-md-3 col-lg-6">
+            <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary
+            </div>
+            <div class="p-2">
+                <p class="font-italic ">Shipping and additional costs are calculated based on values you
+                    have entered. <b>Tax per product {{2.50 | currency : 'INR'}}</b> and <b> Shipping charges {{50 | currency : 'INR'}} </b> </p>
+                <ul class="list-unstyled mb-4">
+                    <li class="d-flex justify-content-between py-2 border-bottom"><strong
+                            class="text-muted">Total Product Count </strong><strong>{{totalItem}}</strong></li>
+                    <li class="d-flex justify-content-between py-2 border-bottom"><strong
+                            class="text-muted">Order Subtotal </strong><strong>{{grandTotal |currency : 'INR'}}</strong></li>
+                    <li class="d-flex justify-content-between py-2 border-bottom"><strong
+                            class="text-muted">Shipping and handling</strong><strong>{{shippingAmount | currency : 'INR'}}</strong></li>
+                    <li class="d-flex justify-content-between py-2 border-bottom"><strong
+                            class="text-muted">Tax</strong><strong>{{totalItem*2.50 | currency : 'INR'}}</strong></li>
+                        
+                           
+                    <li class="d-flex justify-content-between py-3 border-bottom"><strong
+                            class="text-muted">Grand Total</strong>
+                          
+                        <h5 class="font-weight-bold" style="color:black;">{{grandTotal+(totalItem*2.50)+shippingAmount-couponValue |  number:'1.0-3' | currency : 'INR'}}</h5>
+                    </li>
+                </ul><button routerLink="/payment" class="btn btn-warning rounded-pill py-2 btn-block"><b>Proceed to checkout</b></button>
+            </div>
+        </div>
+    </div>
+</div>

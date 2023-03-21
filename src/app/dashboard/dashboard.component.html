@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<section>
+<ng-container *ngFor="let item of productList;">
+ 
+</ng-container>
+ <div class="container-fluid py-1"> 
+    <div class="row">
+
+      <ng-container *ngFor="let item of productList;">
+        <div class="col-md-2">
+
+          <div class="card" style="height:250px;margin-bottom: 10px;">
+
+            <div class="card-body">
+              <img src="{{item.image}}" alt="a2z" title="a2z{{item.title}}"
+                style="height:120px;width:120px;align-items:center;transition: 0.5s all ease-in-out;">
+               
+            </div>
+            <div class="card-footer bg-light">
+              <p class="text-overflow" style="font-size:14px;"> {{item.title}}</p>
+             
+              <div class="d-flex justify-content-between mb-1">
+                <p class="mb-0" style="font-family:none;">{{item.price|currency : 'INR'}}</p>
+
+                <button class="btn btn-warning btn-sm" style="font-size: 10px;font-weight: bold;" (click)="addToCart(item)">Add to cart </button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+
+      </ng-container>
+
+
+
+    </div>
+  </div> 
+</section>

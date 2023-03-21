@@ -1,0 +1,26 @@
+input:not(input[type=submit]) {
+    outline:none;
+    border:none;
+    background: none;
+    border-bottom:1px solid black;
+    color:black;
+    border-radius: 0;
+    padding:0;
+}
+input:focus{
+    color:black;
+    box-shadow: none;
+    outline:none;
+    border:none;
+    background: none;
+
+}
+input:hover{
+    box-shadow: none;
+    outline:none;
+    border:none;
+    background: none;
+}
+.login-form{
+    box-shadow: 1px 2px 2px 2px #e3e3e3;
+}

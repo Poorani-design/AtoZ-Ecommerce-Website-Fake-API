@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<section class="login-block">
+  <div class="container">
+      <div class="row">
+          <div class="col offset-md-3 col-md-6 login-sec">
+           <br>
+              <form class="login-form" action="" 
+               #f="ngForm"
+               novalidate
+               (ngSubmit)="f.form.valid&&onSubmit()"
+               style="border:1px solid #e3e3e3"
+               class="p-5 btn-light"
+              >
+              <h4 class="text-center">Login Now</h4>
+              <div class="form-group">
+                  <input type="email"  class="form-control" name="email" #email="ngModel" [(ngModel)]="formdata.email" id="" placeholder="enter your email"  required>
+                  <span class="text-danger" *ngIf="this.submit&&email.errors?.['required']">
+                      Email is required.
+                  </span>
+              </div>
+              <div class="form-group">
+                  <input  class="form-control" type="password" #password="ngModel"  [(ngModel)]="formdata.password" name="password" placeholder="enter your password" id="" required >
+                  <span class="text-danger" *ngIf="this.submit&&password.errors?.['required']">
+                      Password is required.
+                  </span>
+              </div>
+              <div class="form-group">
+                  <div  class="text-center" *ngIf="this.loading">
+                      <div class="spinner-border text-primary " role="status">
+                      <span class="sr-only">Loading...</span>
+                      </div>
+                  </div>
+                  <span class="text-danger" *ngIf="this.errorMessage" >
+                    <p  [innerText]="this.errorMessage"></p>
+                  </span>
+               
+                  <input  type="submit" (click)="submit=true" class="btn btn-login btn-success float-right" [disabled]="this.loading" value="Login" >
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-group">
+              Create new account ? Please <a  href="javascript:void(0);" routerLink="/register">Register</a>
+              </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
